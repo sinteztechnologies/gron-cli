@@ -1,0 +1,19 @@
+{
+   "name": "gron",
+   "version": "1.0.0",
+   "description": "GRON Digital command line tools",
+   "main": "gro.js",
+   "preferGlobal": true,
+   "bin": "./gro.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "author": "GRON Digital",
+   "license": "ISC",
+   "dependencies": {
+      "commander": "^2.12.2",
+      "inquirer": "^4.0.1",
+      "truffle-contract": "^3.0.1",
+      "web3": "^1.0.0-beta.27"
+   }
+}
