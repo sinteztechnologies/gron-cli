@@ -2,7 +2,7 @@
 
 const program = require('commander');
 
-const { allocateTokens } = require('./functions');
+const { allocateTokens, totalSupply, tokenBalance, addLiquidity, removeLiquidity  } = require('./functions');
 
 program
     .version('0.0.1')
@@ -32,5 +32,22 @@ program
     .action(() => {
 	totalSupply();
     });
+
+program
+    .command('addLiquidity <etherAmount>')
+    .alias('l')
+    .description('Add Ether to GRO token contract.')
+    .action((etherAmount) => {
+	addLiquidity(etherAmount);
+    });
+
+program
+    .command('removeLiquidity <etherAmount>')
+    .alias('l')
+    .description('Allow fundWallet to remove Ether from contract. Ether amount must be an integer.')
+    .action((etherAmount) => {
+	removeLiquidity(etherAmount);
+    });
+
 
 program.parse(process.argv);

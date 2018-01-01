@@ -77,6 +77,39 @@ totalSupply = function() {
 	});
 }
 
+
+addLiquidity = function(etherAmount) {
+
+    let wei = web3.utils.toWei(etherAmount, "ether");
+    contract.methods.addLiquidity()
+	.send({from: fundingWallet, value: wei}, function(error, result) {
+	    if(error) {
+		console.log("addLiquidity failed");
+		console.log(error);
+	    }
+	    else{
+		console.log(etherAmount + " ETH added.");
+	    }
+	});
+}
+
+
+removeLiquidity = function(etherAmount) {
+
+    contract.methods.removeLiquidity(etherAmount)
+	.send({from: fundingWallet}, function(error, result) {
+	    if(error) {
+		console.log("removeLiquidity failed");
+		console.log(error);
+	    }
+	    else{
+		console.log(etherAmount + " ETH transferred.");
+	    }
+	});
+}
+
+
+
 // Export all methods
-module.exports = { allocateTokens, totalSupply, tokenBalance };
+module.exports = { allocateTokens, totalSupply, tokenBalance, addLiquidity, removeLiquidity};
 
