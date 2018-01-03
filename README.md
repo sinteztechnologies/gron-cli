@@ -15,7 +15,7 @@ Build and compile the smart contracts:
 ```shell
 # in one shell / tab, start testrpc 
 
-testrpc # take note of generated accounts and private keys
+testrpc -d # Running in deterministic mode. 
 
 # in a separate tab 
 git clone https://github.com/grondigital/smartcontracts-truffle
